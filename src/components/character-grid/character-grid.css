@@ -1,0 +1,43 @@
+.character-grid {
+  display: grid;
+  margin: 0 2em 0 2em;
+  gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+}
+.character-grid > * {
+  margin-bottom: 1em;
+}
+
+.character-grid > *:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 650px) {
+  .character-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 850px) {
+  .character-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .character-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1300px) {
+  .character-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1500px) {
+  .character-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}

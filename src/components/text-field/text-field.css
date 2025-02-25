@@ -1,0 +1,17 @@
+.text-field-container {
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.text-field-label {
+  margin-bottom: 0.5rem;
+}
+
+.text-field {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 40em;
+}

@@ -23,6 +23,16 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      "eqeqeq": "error",
+      "no-unused-vars": "error",
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "semi": ["warn","always"],
+      "prettier/prettier": "warn",
+      "@typescript-eslint/prefer-nullish-coalescing": "warn",
+      "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/ban-types": "off"
     },
   },
 )

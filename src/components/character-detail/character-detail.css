@@ -1,0 +1,17 @@
+.character-detail {
+  background-color: black;
+  color: white;
+}
+
+.character-detail-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin: 0 20em 0 20em;
+}
+
+.character-detail-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,21 @@
+.search-bar {
+  padding: 0 2em 0 2em;
+}
+
+.search-bar-field-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-bar-lens {
+  width: 16px;
+}
+
+.search-bar-separator {
+  border: none;
+  width: 100%;
+  height: 1px;
+  margin-top: -16px;
+  background-color: black;
+}
