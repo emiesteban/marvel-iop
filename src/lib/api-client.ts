@@ -46,8 +46,10 @@ export const apiClient = async (
     } as RequestInit;
   }
   const timestamp = new Date().getTime();
-  const publicKey = "";
-  const privateKey = "";
+
+  const publicKey = import.meta.env.VITE_REACT_APP_PUBLIC_API_KEY;
+  const privateKey = import.meta.env.VITE_REACT_APP_PRIVATE_API_KEY;
+
   const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
   const getUrl = () =>
     url.concat(

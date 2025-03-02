@@ -3,8 +3,20 @@ import TextField from "../text-field/text-field";
 import lens from "/lens.png";
 import "./search-bar.css";
 
-const SearchBar = (): JSX.Element => {
-  const [search, setSearch] = useState<string | undefined>(undefined);
+type SearchBarProps = {
+  setSearchName: (name: string | undefined) => void;
+  disabled: boolean;
+  initialValue: undefined | string;
+};
+
+const SearchBar = ({
+  setSearchName,
+  disabled = false,
+  initialValue,
+}: SearchBarProps): JSX.Element => {
+  const [search, setSearch] = useState<string | undefined>(initialValue);
+  const onIntro = () => setSearchName(search);
+
   return (
     <div className="search-bar" data-testid="search-bar">
       <div
@@ -20,6 +32,8 @@ const SearchBar = (): JSX.Element => {
           onChange={(value) => {
             setSearch(value);
           }}
+          onIntro={() => onIntro()}
+          disabled={disabled}
         />
       </div>
       <hr className="search-bar-separator" />

@@ -4,7 +4,6 @@
   position: relative;
   background-color: black;
   color: white;
-  margin: 20px auto;
   cursor: pointer;
   overflow: hidden;
 
@@ -23,10 +22,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 12.1em; /* "borde" inicial */
-  background-color: red; /* color rojo */
+  height: 12.1em;
+  background-color: red;
   transition: height 0.3s ease;
-  z-index: 1; /* Queda debajo del texto */
+  z-index: 1;
 }
 
 .character-card:hover::before {
@@ -51,6 +50,7 @@
 }
 
 .character-card-heart.character-card-heart-filled {
+  font-size: 2em;
   color: red;
 }
 

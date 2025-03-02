@@ -1,16 +1,16 @@
-import { JSX, useEffect } from "react";
+import { JSX } from "react";
 import { useCharacterById } from "../../hooks/use-character-by-id";
 import ProgressBar from "../../components/progress-bar/progress-bar";
 import CharacterDetail from "../../components/character-detail/character-detail";
 import { useComicList } from "../../hooks/use-comics";
 import ComicCarrousel from "../../components/comic-carrousel/comic-carrousel";
 import { useParams } from "react-router";
+import "./character-details.css";
 
 const CharacterDetails = (): JSX.Element => {
   const { characterid = "" } = useParams();
   const offset = 0;
   const limit = 20;
-  console.log("characterid", characterid);
 
   const {
     data: charData,
@@ -24,13 +24,6 @@ const CharacterDetails = (): JSX.Element => {
   } = useComicList(characterid, offset, limit);
   const isLoading = isLoadingChar || isLoadingComic;
   const isError = isErrorChar || isErrorComic;
-
-  useEffect(() => {
-    if (!isError && !isLoading) {
-      console.log("charData", charData.data);
-      console.log("comicList", comicList.data);
-    }
-  }, [isLoading]);
 
   return (
     <div className="character-details" data-testid="character-details">

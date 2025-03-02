@@ -7,6 +7,8 @@ type TextFieldProps = {
   value: string;
   placeholder?: string;
   onChange: (newValue: string) => void;
+  onIntro?: () => void;
+  disabled?: boolean;
 };
 
 const TextField = ({
@@ -14,6 +16,8 @@ const TextField = ({
   value,
   placeholder,
   onChange,
+  onIntro,
+  disabled = false,
 }: TextFieldProps): JSX.Element => {
   return (
     <div className="text-field-container">
@@ -26,6 +30,12 @@ const TextField = ({
           onChange(e.target.value);
         }}
         placeholder={placeholder}
+        onKeyDown={(event) => {
+          if (onIntro && event.key === "Enter") {
+            onIntro();
+          }
+        }}
+        disabled={disabled}
       />
     </div>
   );

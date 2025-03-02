@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
+# MARVEL IOP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Intro
 
-Currently, two official plugins are available:
+MARVEL IOP is a client frontend application to view the Marvel Characters from API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technical Stack
 
-## Expanding the ESLint configuration
+- [Vite](https://vite.dev/)
+- [Node](https://nodejs.org/)
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [Node Package Manager](https://www.npmjs.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Translation
 
-- Configure the top-level `parserOptions` property like this:
+Not implemented yet, but must be located into `public/locales` folder
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Environment Variables
+
+Env variables are handled differently according to the environment. For local
+development, they should be added to a file `.env`, an `.env.example` is
+provided with empty fields.
+
+| Environment Variable        | Description                                                  | Example Value                                                                           |
+| --------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| NODE_ENV                    | Development or Production                                    | development                                                                             |
+
+### System requirements
+
+- Node.js version: `^v22.14`
+- React version: `^19.0.0`
+- Package manager: `npm`
+- Vite Version: `^6.1.0`
+- React Router: `^7.2.0`
+
+## Commands
+
+Start dev server
+
+Obtain an API key from marvel, set the file
+REMOVE.env.local with the keys and save
+
+```perl
+VITE_REACT_APP_PUBLIC_API_KEY="SET_YOUR_PUBLIC_KEY"
+VITE_REACT_APP_PRIVATE_API_KEY="SET_YOUR_PRIVATE_KEY"
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Rename the REMOVE.env.local to env.local
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+mv REMOVE.env.local .env.local
 ```
+
+The run the serve:
+
+```sh
+npm run dev
+```
+
+Generate production build:
+
+```sh
+npm run build
+```
+
+Run the tests:
+
+```sh
+npm run test
+```
+
+Run the test-coverage:
+
+```sh
+npm run test:coverage
+```
+
+### ToDo
+
+Schemas: Not implemented yet, but must be located into `src/schema` folder
+Jest: finalize Jest configuration, currently have an issue with types.
+e2e: setup e2e environment, Cypress.
+Ally: validate if required update the components to be wcag 2.1 compliance
+MSW: add MockServiceWorker service, providing responses on local, with the mock responses from src/mocks
+Pagination: Create and add pagination component
+Search: Add more search options included in the API contract
+Attribution text: its required to publish the site.
+
+### Endpoint
+
+This app depends on Marvel endpoints, if the endpoint is updated, maybe the app should not work and must be updated.
+
+### Support contact
+
+- [Emiliano M. Esteban](mailto:eoeb@gft.com)

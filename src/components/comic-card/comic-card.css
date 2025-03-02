@@ -1,0 +1,15 @@
+.comic-card {
+  max-width: calc(var(--detail-columns-width) * 0.5);
+}
+
+.comic-image {
+  width: calc(var(--detail-columns-width) * 0.5);
+  height: calc(var(--detail-columns-width) * 0.7);
+}
+
+.comic-title {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 1em;
+}

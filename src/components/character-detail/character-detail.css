@@ -1,17 +1,51 @@
 .character-detail {
   background-color: black;
   color: white;
+  flex-direction: column;
+  justify-items: center;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%
+  );
 }
 
 .character-detail-container {
   display: flex;
-  flex-direction: row;
-  gap: 1em;
+  flex-direction: column;
   margin: 0 20em 0 20em;
+  max-width: var(--detail-container-width);
+  gap: var(--detail-gap);
+}
+
+.character-detail-text-container {
+  display: flex;
+  flex-direction: column;
+  width: var(--detail-columns-width);
+  justify-content: center;
+}
+
+.character-detail-description {
+  padding: 1em 0 3em 0;
+}
+
+.character-detail-image {
+  width: var(--detail-columns-width);
+  height: var(--detail-columns-width);
+  object-fit: cover;
 }
 
 .character-detail-title-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (min-width: 850px) {
+  .character-detail-container {
+    flex-direction: row;
+  }
 }

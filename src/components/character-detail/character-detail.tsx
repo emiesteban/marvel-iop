@@ -1,12 +1,18 @@
 import { JSX } from "react";
+import useCharacterContext from "../../hooks/use-character-context";
+import { Character } from "../../types";
 import "./character-detail.css";
 
 type CharacterDetailProps = {
-  character: any;
+  character: Character;
 };
 
 const CharacterDetail = ({ character }: CharacterDetailProps): JSX.Element => {
-  const isFavorite = false;
+  const { addFavorite, removeFavorite, isFavorite } = useCharacterContext();
+  const isFav = isFavorite(character);
+
+  const updateFavorite = () =>
+    isFav ? removeFavorite(character) : addFavorite(character);
 
   return (
     <div className="character-detail" data-testid="character-detail">
@@ -20,9 +26,12 @@ const CharacterDetail = ({ character }: CharacterDetailProps): JSX.Element => {
           className="character-detail-image"
         />
         <div className="character-detail-text-container">
-          <div className="character-detail-title-container">
-            <span>{character.name}</span>
-            {isFavorite ? (
+          <div
+            className="character-detail-title-container"
+            onClick={() => updateFavorite()}
+          >
+            <h1>{character.name}</h1>
+            {isFav ? (
               <span className="character-card-heart character-card-heart-filled">
                 &#9829;
               </span>
@@ -33,7 +42,7 @@ const CharacterDetail = ({ character }: CharacterDetailProps): JSX.Element => {
             )}
           </div>
           <div className="character-detail-description">
-            <span>{character.description}</span>
+            <h4>{character.description}</h4>
           </div>
         </div>
       </div>

@@ -1,9 +1,19 @@
 import { JSX } from "react";
+import "./comic-card.css";
 
-const ComicCard = (): JSX.Element => {
+type ComicCardProps = {
+  comic: any;
+};
+
+const ComicCard = ({ comic }: ComicCardProps): JSX.Element => {
   return (
     <div className="comic-card" data-testid="comic-card">
-      ComicCard
+      <img
+        src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+        className="comic-image"
+        alt={comic.name}
+      />
+      <div className="comic-title">{comic.title}</div>
     </div>
   );
 };

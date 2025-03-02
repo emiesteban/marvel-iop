@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "#/*": ["test/*"],
+      "@/*": ["src/*"],
+      "config/*": ["config/*"]
+    },
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -20,7 +26,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /*fix jest*/
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "src/modules"]
+  "include": ["src/**/*", "src/modules/*", "test/**/*"],
+  "exclude": ["node_modules"]
 }

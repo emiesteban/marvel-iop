@@ -1,6 +1,18 @@
+export interface Character {
+  id: string;
+  name: string;
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
+  description: string;
+}
+
 export interface CharacterContextProps {
-  favorites: any[];
-  setFavorites: React.Dispatch<React.SetStateAction<any[]>>;
+  favorites: Character[];
+  addFavorite: (arg0: Character) => void;
+  removeFavorite: (arg0: Character) => void;
+  isFavorite: (arg0: Character) => boolean;
   getFavoritesCount: () => number;
   showFavorites: boolean;
   setShowFavorites: React.Dispatch<React.SetStateAction<boolean>>;
